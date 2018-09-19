@@ -26,6 +26,7 @@ public class SccaUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepo.findByUsername(username);
+        user.setPassword("$2a$10$L2Izg5XTjzClRgh09isYweLX.BNLt4sEt03M0/P.xtlnALaJ0NAAO");//TODO password=123456
         if (user == null) {
             throw new UsernameNotFoundException("username: " + username);
         }
