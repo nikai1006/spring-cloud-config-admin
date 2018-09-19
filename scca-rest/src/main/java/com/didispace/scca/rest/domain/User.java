@@ -1,6 +1,7 @@
 package com.didispace.scca.rest.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,8 +19,9 @@ import javax.persistence.Id;
 @Data
 @Entity
 @NoArgsConstructor
-public class User {
+public class User implements Serializable{
 
+    private static final long serialVersionUID = -5543840296875151069L;
     @Id
     @GeneratedValue
     private Long id;
@@ -46,4 +48,14 @@ public class User {
      */
     private Integer role;
 
+    @Override
+    public String toString() {
+        return "User{" +
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", nickname='" + nickname + '\'' +
+            ", role=" + role +
+            '}';
+    }
 }
